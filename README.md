@@ -1,9 +1,9 @@
 # AWS Luperca
 
 ## Objective:
-
+Be able to create multiple AWS accounts
 ## The brief how:
-
+Using AWS organizations and terraform
 ## How?
 
 ## Why?
@@ -18,7 +18,7 @@
 
 ### Extra Docs and ref:
 - [What hell is _Luperca_?](https://en.wikipedia.org/wiki/Capitoline_Wolf)
-- [Configurando OpenID Connect em provedores da nuvem](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers)
+- [Configuring OpenID Connect in Amazon Web Services](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)
 
 ### Temp Notes
 
