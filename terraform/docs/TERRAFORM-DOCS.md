@@ -38,10 +38,10 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_business_unit"></a> [business\_unit](#input\_business\_unit) | n/a | `map` | <pre>{<br>  "bu-name": [<br>    "env1",<br>    "env2",<br>    "env3"<br>  ]<br>}</pre> | no |
+| <a name="input_business_unit"></a> [business\_unit](#input\_business\_unit) | Name of the business unit and the needed environments | `map` | <pre>{<br>  "bu-name": [<br>    "env1",<br>    "env2",<br>    "env3"<br>  ]<br>}</pre> | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_non_master_accounts"></a> [non\_master\_accounts](#output\_non\_master\_accounts) | n/a |
+| <a name="output_non_root_accounts"></a> [non\_root\_accounts](#output\_non\_root\_accounts) | Information about arn, id and status of the managed account |
