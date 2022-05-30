@@ -1,3 +1,4 @@
-output "non_master_accounts" {
-  value = data.aws_organizations_organization.root.non_master_accounts
+output "non_root_accounts" {
+  description = "Information about arn, id and status of the managed account"
+  value       = local.acct_id
 }
