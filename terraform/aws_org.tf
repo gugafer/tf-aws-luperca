@@ -1,11 +1,15 @@
 resource "aws_organizations_organization" "root" {
   aws_service_access_principals = [
+    "account.amazonaws.com",
     "cloudtrail.amazonaws.com",
     "config.amazonaws.com",
+    "ram.amazonaws.com",
+    "ssm.amazonaws.com",
+    "tagpolicies.tag.amazonaws.com"
   ]
 
   feature_set          = "ALL"
-  enabled_policy_types = ["SERVICE_CONTROL_POLICY"]
+  enabled_policy_types = ["SERVICE_CONTROL_POLICY", "TAG_POLICY"]
 }
 
 resource "aws_organizations_organizational_unit" "active" {
@@ -20,9 +24,8 @@ resource "aws_organizations_organizational_unit" "trash" {
 }
 
 resource "aws_organizations_account" "account" {
-  for_each = {
-    for buenv in local.buEnv : "${buenv.buName}-${buenv.env}" => buenv
-  }
+  for_each = { for buenv in local.buEnv : "${buenv.buName}-${buenv.env}" => buenv }
+
   name              = "${each.value.buName}-${each.value.env}"
   email             = "riclima1990+${each.value.buName}-${each.value.env}@gmail.com"
   parent_id         = aws_organizations_organizational_unit.active[each.value.buName].id
