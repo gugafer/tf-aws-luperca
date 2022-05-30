@@ -4,7 +4,22 @@
 Be able to create multiple AWS accounts
 ## The brief how:
 Using AWS organizations and terraform
+You need to add your bussiness_unit name and the list of envs at [variables.tf](terraform/variables.tf) to create the accounts separated by env.
+
+exemple:
+```hcl
+variable "business_unit" {
+  description = "Name of the business unit and the needed environments"
+  default = {
+    bu1 = ["prod", "dev"],
+    bu2 = ["prod", "sbd", "stg", "dev"]
+  }
+}
+```
 ## How?
+
+> A more specific how will be here briefly
+
 
 ## Why?
 
@@ -27,26 +42,3 @@ Using AWS organizations and terraform
     - [AWS Systems Manager](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-ssm.html)
     - [Tag policies](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-tag-policies.html)
 - [Service control policies (SCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html)
-
-### Temp Notes
-
-the trust relationship for the created role
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Principal": {
-                "Federated": "arn:aws:iam::YOUR-ACCT-NUMBER-NOT-MINE:oidc-provider/token.actions.githubusercontent.com"
-            },
-            "Action": "sts:AssumeRoleWithWebIdentity",
-            "Condition": {
-                "StringLike": {
-                    "token.actions.githubusercontent.com:sub": "repo:USERNAME-OR-ORG/*"
-                }
-            }
-        }
-    ]
-}
-```
