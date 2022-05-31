@@ -30,7 +30,7 @@ jobs:
 
       - name: Generate Infracost cost estimate baseline
         run: |
-          infracost breakdown --path=./terraform \
+          infracost breakdown --path=terraform/ \
                               --format=json \
                               --out-file=/tmp/infracost-base.json
       
@@ -39,7 +39,7 @@ jobs:
       
       - name: Generate Infracost diff
         run: |
-          infracost diff --path=$./terraform \
+          infracost diff --path=terraform/ \
                         --format=json \
                         --compare-to=/tmp/infracost-base.json \
                         --out-file=/tmp/infracost.json
@@ -145,6 +145,5 @@ jobs:
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: |
-          export GITHUB_TOKEN="${{ secrets.GMAC }}"
-          terraform apply -auto-approve -input=false
+        run: terraform apply -auto-approve -input=false
+        
