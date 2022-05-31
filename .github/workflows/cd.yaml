@@ -74,7 +74,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
-          cli_config_credentials_token: ${{ secrets.TF_TF_AWS_ROOT_LAB }}
+          cli_config_credentials_token: ${{ secrets.TF_AWS_ROOT_LAB }}
 
       - name: Terraform Init
         id: init
@@ -146,4 +146,3 @@ jobs:
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false
-        
