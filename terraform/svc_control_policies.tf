@@ -6,8 +6,8 @@ resource "aws_organizations_policy" "deny_list" {
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "",
-            "Effect": "DenyConfigChanges",
+            "Sid": "DenyConfigChanges",
+            "Effect": "Deny",
             "Action": [
                 "cloudtrail:AddTags",
                 "cloudtrail:CreateTrail",
