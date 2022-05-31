@@ -56,7 +56,6 @@ jobs:
   job_deployment:
     name: "Terraform deployment"
     runs-on: ubuntu-latest
-    needs: job_infracost
     defaults:
       run:
         working-directory: ./terraform
