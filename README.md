@@ -95,7 +95,7 @@ the naming will be:
 - For organization unit will be the key: ```bu1```
 - For the account will be key-listObject: ```bu1-prod```
 
-To remove an account is a bit more complicated:
+**To remove an account is a bit more complicated:**
 > If you remove the account from the list, the account will be immediately suspended, but if you try to remove the bu together with the account terraform will break because there is an object inside the OU
 
 So a manual intervention is necessary and the change will need 2 PR
