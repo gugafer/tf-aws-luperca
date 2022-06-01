@@ -86,12 +86,10 @@ resource "aws_organizations_policy" "deny_list" {
             "Condition": {
                 "StringNotEquals": {
                     "aws:RequestedRegion": [
-                        "af-*",
-                        "ap-*", 
-                        "ca-*", 
-                        "eu-*", 
-                        "me-*", 
-                        "sa-*" 
+                        "us-east-1",
+                        "us-east-2",
+                        "us-west-1",
+                        "us-west-2"
                     ]
                 }
             }
