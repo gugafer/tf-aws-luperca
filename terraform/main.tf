@@ -16,4 +16,12 @@ terraform {
 
 provider "aws" {
   region = "us-east-1"
+  default_tags {
+    tags = {
+      Owner         = "Black Mesa"
+      Project       = "Sector-C"
+      Business_Unit = "Anomalous Materials"
+      Environment   = "Hazardous"
+    }
+  }
 }
