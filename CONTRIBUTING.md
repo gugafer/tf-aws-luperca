@@ -14,7 +14,7 @@ _Plagiarized from Github..._
 ## The development flow:
 
 It looks like TBD (Trunk Based Development).
-- The process is a manual due to the costs of AWS so:
+- The process is manual due to the costs of AWS so:
     - Create a new branch
     - Locally test with [TFLint](https://github.com/terraform-linters/tflint) and [Checkov](https://www.checkov.io/)
     - Open a PR
