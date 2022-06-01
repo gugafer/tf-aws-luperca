@@ -32,7 +32,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_business_unit"></a> [business\_unit](#input\_business\_unit) | Name of the business unit and the needed environments | `map` | <pre>{<br>  "bu1": [],<br>  "bu2": []<br>}</pre> | no |
+| <a name="input_business_unit"></a> [business\_unit](#input\_business\_unit) | Name of the business unit and the needed environments | `map` | <pre>{<br>  "bu1": [<br>    "prd"<br>  ],<br>  "bu2": [<br>    "prd"<br>  ]<br>}</pre> | no |
 
 ## Outputs
 
