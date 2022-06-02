@@ -1,4 +1,4 @@
-output "non_root_accounts" {
-  description = "Information about arn, id and status of the managed account"
+output "accouts_info" {
+  description = "Information about arn, id and status of the managed accounts"
   value       = local.acct_id
 }
