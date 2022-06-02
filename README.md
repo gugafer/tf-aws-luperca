@@ -54,7 +54,9 @@ Using github actions and Terraform this repo can create:
 In the Github actions, I'm using OpenID to authenticate at the AWS root account and passing the created role
 via secret with the name of GITHUBOIDC_AWSROLE secret var in the CI and CD files.
 
-For remote state, I'm using Terraform cloud with the local exec configurated there so I can execute all terraform steps here in the Github.
+For remote state, I'm using Terraform cloud with the local exec configurated there so I can execute all terraform steps here in the Github, it's necessary to create a token at terraform cloud and in the CI/CD files pass that secret, here I've called TF_AWS_ROOT_LAB.
+
+For Infracost you will also need a API key, toget the key you can check their docs: [Get API key​](https://www.infracost.io/docs/#2-get-api-key), here I've called INFRACOST_API_KEY
 
 For CI checks I'm using TFLint, Checkov, and Infracost.
 
