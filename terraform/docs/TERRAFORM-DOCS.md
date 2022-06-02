@@ -38,4 +38,4 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_non_root_accounts"></a> [non\_root\_accounts](#output\_non\_root\_accounts) | Information about arn, id and status of the managed account |
+| <a name="output_accouts_info"></a> [accouts\_info](#output\_accouts\_info) | Information about arn, id and status of the managed accounts |
