@@ -19,9 +19,11 @@ No modules.
 | Name | Type |
 |------|------|
 | [aws_organizations_account.account](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_account) | resource |
+| [aws_organizations_account.sec_accounts](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_account) | resource |
 | [aws_organizations_organization.root](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_organization) | resource |
 | [aws_organizations_organizational_unit.active](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_organizational_unit) | resource |
-| [aws_organizations_organizational_unit.trash](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_organizational_unit) | resource |
+| [aws_organizations_organizational_unit.security](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_organizational_unit) | resource |
+| [aws_organizations_organizational_unit.suspended](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_organizational_unit) | resource |
 | [aws_organizations_policy.allow_list](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_policy) | resource |
 | [aws_organizations_policy.deny_list](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_policy) | resource |
 | [aws_organizations_policy_attachment.allow_list](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/organizations_policy_attachment) | resource |
@@ -32,7 +34,8 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_business_unit"></a> [business\_unit](#input\_business\_unit) | Name of the business unit and the needed environments | `map` | <pre>{<br>  "bu1": [<br>    "prd"<br>  ],<br>  "bu2": [<br>    "prd"<br>  ]<br>}</pre> | no |
+| <a name="input_business_unit"></a> [business\_unit](#input\_business\_unit) | Name of the business unit and the needed environments | `map` | `{}` | no |
+| <a name="input_sec_accounts"></a> [sec\_accounts](#input\_sec\_accounts) | Accounts recommended by AWS org best practices | `list(string)` | <pre>[<br>  "log archive",<br>  "security tooling"<br>]</pre> | no |
 
 ## Outputs
 
