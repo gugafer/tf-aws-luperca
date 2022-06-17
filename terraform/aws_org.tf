@@ -3,6 +3,8 @@ resource "aws_organizations_organization" "root" {
     "account.amazonaws.com",
     "cloudtrail.amazonaws.com",
     "config.amazonaws.com",
+    "config-multiaccountsetup.amazonaws.com",
+    "sso.amazonaws.com",
     "ram.amazonaws.com",
     "ssm.amazonaws.com",
     "tagpolicies.tag.amazonaws.com"
@@ -30,6 +32,7 @@ resource "aws_organizations_account" "account" {
   email             = "email+${each.value.buName}-${each.value.env}@domain.com"
   parent_id         = aws_organizations_organizational_unit.active[each.value.buName].id
   close_on_deletion = true
+  role_name         = "AdminCrossAccountRole"
 
   lifecycle {
     ignore_changes = [role_name]
