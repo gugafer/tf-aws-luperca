@@ -14,14 +14,34 @@ resource "aws_organizations_organization" "root" {
   enabled_policy_types = ["SERVICE_CONTROL_POLICY", "TAG_POLICY"]
 }
 
-resource "aws_organizations_organizational_unit" "active" {
-  for_each  = var.business_unit
-  name      = each.key
+resource "aws_organizations_organizational_unit" "suspended" {
+  name      = "Suspended Accounts"
   parent_id = aws_organizations_organization.root.roots[0].id
 }
 
-resource "aws_organizations_organizational_unit" "trash" {
-  name      = "trash"
+resource "aws_organizations_organizational_unit" "security" {
+  name      = "Security"
+  parent_id = aws_organizations_organization.root.roots[0].id
+}
+
+resource "aws_organizations_account" "sec_accounts" {
+  for_each = toset(var.sec_accounts)
+
+  name              = each.value
+  email             = "secemail@domain.com"
+  parent_id         = aws_organizations_organizational_unit.security.id
+  close_on_deletion = true
+  role_name         = "SecAdminCrossAccountRole"
+
+  lifecycle {
+    ignore_changes = [role_name]
+  }
+}
+
+resource "aws_organizations_organizational_unit" "active" {
+  for_each = var.business_unit
+
+  name      = each.key
   parent_id = aws_organizations_organization.root.roots[0].id
 }
 
