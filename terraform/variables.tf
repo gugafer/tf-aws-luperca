@@ -5,9 +5,3 @@ variable "business_unit" {
     # bu2 = ["prd"]
   }
 }
-
-variable "sec_accounts" {
-  description = "Accounts recommended by AWS org best practices"
-  type        = list(string)
-  default     = ["log archive", "security tooling"]
-}
