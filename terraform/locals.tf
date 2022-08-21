@@ -10,7 +10,7 @@ locals {
 }
 
 locals {
-  acct_id = {
+  acct_infos = {
     for info in data.aws_organizations_organization.root.non_master_accounts[*] :
     "${info.name}" => { arn = "${info.arn}", id = "${info.id}", status = "${info.status}" }
   }
